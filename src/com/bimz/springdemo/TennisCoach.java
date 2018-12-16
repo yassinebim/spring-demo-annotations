@@ -19,9 +19,16 @@ public class TennisCoach implements Coach {
 		System.out.println(">> Constructor of TennisCoach >>");
 	}
 
-	@Autowired
+//	@Autowired
 	public void setFortuneService(FortuneService fortuneService) {
 		System.out.println(">> setter setFortuneService of TennisCoach >>");
+		this.fortuneService = fortuneService;
+	}
+	
+	
+	@Autowired
+	public void doSomeCrazyStuff(FortuneService fortuneService) {
+		System.out.println(">> method injection doSomeCrazyStuff of TennisCoach >>");
 		this.fortuneService = fortuneService;
 	}
 
