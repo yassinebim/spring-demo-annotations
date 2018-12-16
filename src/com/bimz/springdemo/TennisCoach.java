@@ -8,11 +8,20 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	private FortuneService fortuneService;
-	
-	
-	//Autowired is optional if there is no additional constructor of TennisCoach
+
+	/*
+	 * //Autowired is optional if there is no additional constructor of TennisCoach
+	 * 
+	 * @Autowired public TennisCoach(FortuneService fortuneService) {
+	 * this.fortuneService = fortuneService; }
+	 */
+	public TennisCoach() {
+		System.out.println(">> Constructor of TennisCoach >>");
+	}
+
 	@Autowired
-	public TennisCoach(FortuneService fortuneService) {
+	public void setFortuneService(FortuneService fortuneService) {
+		System.out.println(">> setter setFortuneService of TennisCoach >>");
 		this.fortuneService = fortuneService;
 	}
 
@@ -21,10 +30,9 @@ public class TennisCoach implements Coach {
 		return "Practice your backhand Volley";
 	}
 
-
 	@Override
 	public String getDailyFortune() {
-		return "Tennis Coach says : "+this.fortuneService.getFortune();
+		return "Tennis Coach says : " + this.fortuneService.getFortune();
 	}
 
 }
