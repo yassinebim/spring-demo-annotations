@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component // by befault tennisCoach
 public class TennisCoach implements Coach {
 
+	@Autowired
 	private FortuneService fortuneService;
 
 	/*
@@ -19,14 +20,14 @@ public class TennisCoach implements Coach {
 		System.out.println(">> Constructor of TennisCoach >>");
 	}
 
-//	@Autowired
+//	@Autowired setter injection
 	public void setFortuneService(FortuneService fortuneService) {
 		System.out.println(">> setter setFortuneService of TennisCoach >>");
 		this.fortuneService = fortuneService;
 	}
 	
 	
-	@Autowired
+//	@Autowired methode injection
 	public void doSomeCrazyStuff(FortuneService fortuneService) {
 		System.out.println(">> method injection doSomeCrazyStuff of TennisCoach >>");
 		this.fortuneService = fortuneService;
