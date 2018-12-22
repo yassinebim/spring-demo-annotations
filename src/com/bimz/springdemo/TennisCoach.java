@@ -1,5 +1,8 @@
 package com.bimz.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -45,6 +48,16 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return "Tennis Coach says : " + this.fortuneService.getFortune();
+	}
+	
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println("doing my startup stuff");
+	}
+	
+	@PreDestroy
+	public void doMyDestroyStuff() {
+		System.out.println("Doing my destroy stuff");
 	}
 
 }
