@@ -1,9 +1,16 @@
 package com.bimz.springdemo;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class SwimCoach implements Coach {
 
-	private FortuneService fortuneService;
+	@Value("${me.email}")
+	public String email;
 	
+	@Value("${me.phone}")
+	public String phone;
+	
+	private FortuneService fortuneService;
 	
 	public SwimCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
@@ -18,5 +25,16 @@ public class SwimCoach implements Coach {
 	public String getDailyFortune() {
 		return "Swim coach says : "+this.fortuneService.getFortune();
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+	
+	
+	
 
 }
